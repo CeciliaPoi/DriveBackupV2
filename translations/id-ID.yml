@@ -1,0 +1,187 @@
+# Check if someone has translated the plugin into your language already!
+# https://github.com/MaxMaeder/DriveBackupV2/tree/master/translations
+#
+# If not, feel free to contribute!
+
+plugin-stop: "Menghentikan plugin!"
+metrics-started: "Metrics telah dimulai"
+metrics-error: "Gagal memulai metrics"
+update-checker-started: "Memeriksa pembaruan..."
+update-checker-new-release: |-
+  DriveBackup <latest-version> telah dirilis, Anda saat ini menggunakan <current-version>
+  Unduh pembaruan dari: <gold><click:open_url:http://bit.ly/2VGtF7L>http://bit.ly/2VGtF7L</click></gold> atau klik <gold><click:run_command:/drivebackup update>/drivebackup update</click></gold> untuk memperbarui
+update-checker-unsupported-release: |-
+  Anda menjalankan versi yang tidak didukung!
+  Versi yang direkomendasikan adalah <latest-version>, sedangkan Anda menjalankan <current-version>.
+  Jika Anda baru saja memperbarui plugin ini, abaikan pesan ini
+update-checker-failed: "Terjadi masalah saat mencoba memeriksa pembaruan DriveBackupV2"
+updater-start: "Mencoba mengunduh versi terbaru DriveBackupV2"
+updater-no-updates: "Anda menggunakan versi terbaru DriveBackupV2!"
+updater-fetch-failed: "Tidak dapat mengambil versi terbaru DriveBackupV2"
+updater-update-failed: "Pembaruan plugin gagal, lihat konsol untuk informasi lebih lanjut"
+updater-successful: "Berhasil memperbarui plugin! Restart server Anda untuk menerapkan perubahan."
+config-loaded: "Konfigurasi telah dimuat!"
+config-reloaded: "Konfigurasi telah dimuat ulang!"
+date-format-invalid: "Format tanggal zona waktu tidak valid, menggunakan UTC"
+backup-list-glob-invalid: "Dunia tidak valid, melewati entri backup <entry>"
+backup-list-path-invalid: "Path tidak valid, melewati entri backup <entry>"
+backup-list-no-dest-specified: "Tidak ada path atau dunia yang ditentukan, melewati entri backup <entry>"
+backup-list-format-invalid: "Format tidak valid, melewati entri backup <entry>"
+backup-list-blacklist-invalid: "Blacklist dalam entri backup <entry> tidak valid, dibiarkan kosong"
+ftp-method-pubic-key-invalid: "Path kunci publik tidak valid untuk metode backup FTP, dibiarkan kosong"
+ftp-method-passphrase-invalid: "Passphrase tidak valid untuk metode backup FTP, dibiarkan kosong"
+backup-schedule-days-invalid: "Daftar hari tidak valid, melewati entri jadwal <entry>"
+backup-schedule-day-invalid: "Hari dalam minggu tidak valid, melewati hari \"<day>\""  
+backup-schedule-day-empty: "Daftar hari dalam minggu kosong, melewati entri jadwal <entry>"
+backup-schedule-time-invalid: "Waktu tidak valid, melewati entri jadwal <entry>"
+backup-schedule-empty: "Jadwal backup kosong, menonaktifkan backup berbasis waktu"
+invalid-backup-delay: "Penundaan backup yang dimasukkan tidak valid, menggunakan nilai default"
+thread-priority-too-low: "Prioritas thread yang dimasukkan di bawah nilai minimum, menggunakan nilai default"
+thread-priority-too-high: "Prioritas thread yang dimasukkan melebihi nilai maksimum, menggunakan nilai default"
+keep-count-invalid: "Jumlah penyimpanan tidak valid, menggunakan nilai default"
+local-keep-count-invalid: "Jumlah penyimpanan lokal tidak valid, menggunakan nilai default"
+zip-compression-too-low: "Level kompresi zip yang dimasukkan di bawah nilai minimum, menggunakan nilai default"
+zip-compression-too-high: "Level kompresi zip yang dimasukkan melebihi nilai maksimum, menggunakan nilai default"
+external-backup-type-invalid: "Tipe backup tidak valid, melewati entri backup eksternal <entry>"
+external-backup-host-port-invalid: "Host/port tidak valid, melewati entri backup eksternal <entry>"
+external-backup-user-pass-invalid: "Username/password tidak valid, melewati entri backup eksternal <entry>"
+external-backup-format-invalid: "Format tidak valid, melewati entri backup eksternal <entry>"
+external-backup-public-key-invalid: "Path kunci publik dalam entri backup eksternal <entry> tidak valid, dibiarkan kosong"
+external-backup-passphrase-invalid: "Passphrase dalam entri backup eksternal <entry> tidak valid, dibiarkan kosong"
+external-backup-base-dir-invalid: "Path direktori dasar dalam entri backup eksternal <entry> tidak valid, dibiarkan kosong"
+external-backup-list-invalid: "Backup tidak valid, melewati entri backup eksternal <entry>."
+external-backup-list-path-invalid: "Path tidak valid, melewati entri backup eksternal <entry-backup>."
+external-backup-list-blacklist-invalid: "Blacklist dalam entri backup eksternal <entry-backup> tidak valid, dibiarkan kosong"
+external-database-ssl-invalid: "Pengaturan SSL dalam entri backup eksternal <entry> tidak valid, menonaktifkan SSL"
+external-database-list-invalid: "Database tidak valid, melewati entri backup eksternal <entry>."
+external-database-list-name-invalid: "Nama tidak valid, melewati entri backup database eksternal <entry-database>"
+external-database-list-blacklist-invalid: "Blacklist dalam entri backup database eksternal <entry-backup> tidak valid, dibiarkan kosong"
+backups-scheduled: "Backup dijadwalkan pada <time> di <days>"
+backups-interval-scheduled: "Backup dijadwalkan setiap <delay> menit"
+no-perm: "Anda tidak memiliki izin untuk melakukan ini"
+link-account-code: "Untuk menghubungkan akun <provider>, kunjungi <gold><click:open_url:'<link-url>'><link-url></click></gold> dan masukkan <gold><click:copy_to_clipboard:'<link-code>'><link-code></click></gold>"
+link-provider-failed: "Gagal menghubungkan akun <provider>, silakan coba lagi"
+link-provider-complete: "Akun <provider> Anda telah terhubung!"
+unlink-provider-failed: "Gagal memutuskan hubungan akun <provider>, silakan coba lagi"
+unlink-provider-complete: "Akun <provider> Anda telah terputus!"
+google-pick-shared-drive: "Anda mungkin telah menghubungkan satu atau lebih akun cloud, jika Anda ingin menggunakan salah satunya, pilih atau balas dengan nomornya di chat."
+default-google-drive-name: "Drive Saya"
+google-shared-drive-option: "<bold>[<drive-num>]</bold> <gold><hover:show_text:Pilih drive><click:run_command:'<select-command>'><drive-name></click></hover></gold>"
+file-upload-message: "Upload file memakan waktu <length> detik (<speed>KB/s)"
+backup-forced: "Memaksa backup"
+backup-already-running: |-
+  Backup sudah sedang berjalan
+  <backup-status>
+backup-no-methods: "Tidak ada metode backup yang diaktifkan"
+backup-empty-list: "Daftar backup kosong"
+backup-start: "Membuat backup, server mungkin akan lag sesaat..."
+external-ftp-backup-start: "Mengunduh file dari server (S)FTP (<socket-addr>) untuk disertakan dalam daftar backup"
+external-ftp-backup-blacklisted: "Tidak menyertakan <blacklisted-files> dalam daftar backup dari server (S)FTP, karena mereka di-blacklist oleh \"<glob-pattern>\""
+external-ftp-backup-failed: Gagal menyertakan file dari server (S)FTP (<socket-addr>) dalam daftar backup, periksa kredensial server di <gold>config.yml</gold>.
+external-ftp-backup-complete: "File dari server (S)FTP (<socket-addr>) berhasil disertakan dalam daftar backup"
+external-mysql-backup-start: "Mengunduh database dari server MySQL (<socket-addr>) untuk disertakan dalam daftar backup"
+external-mysql-backup-blacklisted: "Tidak menyertakan tabel \"<blacklist-entry>\" dalam daftar backup, karena di-blacklist."
+external-mysql-backup-failed: Gagal menyertakan database dari server MySQL (<socket-addr>) dalam daftar backup, periksa kredensial server di <gold>config.yml</gold>.
+external-mysql-backup-complete: "Database dari server MySQL (<socket-addr>) berhasil disertakan dalam daftar backup."
+local-backup-date-format-invalid: |-
+  Tidak dapat mengurai format tanggal backup "<file-name>", ini mungkin karena format tanggal telah diperbarui di config.yml.
+  Backup ini akan dihapus
+local-backup-backlisted: "Tidak menyertakan <blacklisted-files-count> file dalam daftar backup, karena mereka di-blacklist oleh \"<glob-pattern>\""
+local-backup-in-backup-folder: "Tidak menyertakan <files-in-backup-folder-count> file dalam daftar backup, karena mereka berada di folder yang digunakan untuk backup."
+local-backup-failed-to-include: "Gagal menyertakan \"<file-path>\" dalam daftar backup, apakah file terkunci? Apakah Anda memiliki akses?"
+local-backup-limit-reached: "Sudah ada <backup-count> file backup, melebihi batas <backup-limit>, menghapus yang terlama"
+local-backup-file-failed-to-delete: "Tidak dapat menghapus backup lokal \"<local-backup-name>\""
+local-backup-failed-to-delete: "Gagal menghapus backup lokal"
+backup-location-start: "Mem-backup \"<location>\""
+backup-failed-absolute-path: |-
+  Gagal membuat backup, path folder backup harus menggunakan path absolut, bukan path relatif
+  Path absolut dapat menimpa file sensitif, lihat dokumentasi untuk informasi lebih lanjut.
+  Melewati backup lokasi ini
+backup-local-failed: |-
+  Gagal membuat backup lokal
+  Meskipun local-keep-count diatur ke nol, plugin ini perlu membuat backup lokal sementara.
+  Melewati backup lokasi ini
+backup-method-uploading: "Mengunggah file ke <upload-method>"
+backup-method-limit-reached: "Lokasi backup saat ini di <upload-method> memiliki <file-count> file, melebihi batas <file-limit>, menghapus"
+backup-method-prune-failed: "Gagal menghapus backup yang melebihi batas"
+backup-method-shared-drive-prune-failed: |-
+  Gagal menghapus backup yang melebihi batas
+  Coba tingkatkan izin akun cloud Anda, atau atur keep-count ke 0 untuk menonaktifkan penghapusan backup.
+backup-method-upload-failed: "Upload gagal"
+backup-method-not-linked: |-
+  Melewati backup ke <upload-method>, akun belum terhubung
+  Untuk menghubungkan akun Anda, klik <gold><click:run_command:'<link-command>'><link-command></click></gold>.
+backup-method-not-auth: |-
+  Melewati backup ke <upload-method>, autentikasi gagal
+  Periksa apakah kredensial di <gold>config.yml</gold> sudah benar.
+backup-method-error-occurred: "Backup ke <upload-method> gagal, verifikasi apakah kredensial benar atau gunakan <gold><click:run_command:'<diagnose-command>'></click></gold> untuk mendiagnosis masalah."
+backup-method-not-auth-authenticator: |-
+  Melewati backup ke <upload-method>, autentikasi gagal
+  Silakan coba hubungkan ulang akun Anda, klik <gold><click:run_command:'<link-command>'><link-command></click></gold>.
+backup-method-complete: "Berhasil mengunggah backup ke <gold><upload-method></gold>"
+backup-complete: "Backup selesai"
+backup-disabled-inactivity: "Menonaktifkan backup otomatis karena server Anda terlalu tidak aktif"
+backup-status-not-running: "Tidak ada backup yang sedang berjalan"
+backup-status-compressing: "Mengompresi \"<set-name>\", <set-num> dari <set-count>"
+backup-status-uploading: "Mengunggah \"<set-name>\", <set-num> dari <set-count>"
+next-backup: "Backup berikutnya akan berjalan dalam %TIME menit"
+next-schedule-backup: "Backup berikutnya akan berjalan pada %DATE"
+next-schedule-backup-format: "h:mm a EEE, MMM d O"
+auto-backups-disabled: "Backup otomatis dinonaktifkan"
+test-method-not-specified: "Harap tentukan metode backup yang akan diuji"
+test-method-invalid: "\"<specified-method>\" bukan metode yang valid"
+test-method-not-enabled: "Backup <upload-method> dinonaktifkan, Anda dapat mengaktifkannya di <gold>config.yml</gold>"
+test-method-begin: "Menguji metode backup <upload-method>"
+test-file-creation-failed: "Gagal membuat file uji, silakan coba lagi"
+test-method-failed: "Uji <upload-method> gagal, periksa <gold>config.yml</gold>"
+test-method-successful: "Metode backup <upload-method> berhasil diuji"
+player-join-backup-enable: "Mengaktifkan backup otomatis"
+player-join-update-available: |-
+  Ada pembaruan tersedia, klik tautan untuk mengunduh: <gold><click:open_url:http://bit.ly/2M14uVD>http://bit.ly/2M14uVD</click></gold>
+  atau jalankan <gold><click:run_command:/drivebackup update>/drivebackup update</click></gold> untuk memperbarui
+player-join-backup-failed: |-
+  <red>Backup terakhir gagal!</red>
+  Periksa konsol untuk informasi lebih lanjut
+debug-log-creating: "Membuat log debug"
+debug-log-created: "Tautan log: <url>"
+connection-error: "Gagal terhubung ke <domain>, periksa koneksi jaringan dan firewall server Anda"
+brief-backup-list: "DriveBackupV2 saat ini akan mem-backup <list>."
+brief-backup-list-empty: "Tidak ada!"
+brief-backup-list-external-backups: "beberapa backup eksternal"
+brief-backup-list-help: "Ingin mem-backup hal lain? Lihat: <gold><click:open_url:http://bit.ly/3xoHRAs>http://bit.ly/3xoHRAs</click></gold>"
+drivebackup-command-header: <gold>|====== <dark_red>DriveBackupV2</dark_red> <gold>|</gold> <yellow>Terjemahan Indonesia</yellow> ======|</gold>
+drivebackup-docs-command: |-
+  <header>
+  Butuh bantuan? Pelajari lebih lanjut di bawah ini!
+  Wiki: <gold><click:open_url:http://bit.ly/3dDdmwK>http://bit.ly/3dDdmwK</click></gold>
+  Discord: <gold><click:open_url:http://bit.ly/3f4VuuT>http://bit.ly/3f4VuuT</click></gold>
+drivebackup-version-command: |-
+  <header>
+  Versi Plugin: <gold><plugin-version></gold>
+  Versi Java: <gold><java-version></gold>
+  Tipe Server: <gold><server-software></gold>
+  Versi Server: <gold><server-version></gold>
+drivebackup-version-update: <gold>Pembaruan tersedia!</gold>
+drivebackup-help-command: |-
+  <header>
+  <gold><click:run_command:/drivebackup>/drivebackup</click></gold> - Tampilkan menu ini
+  <gold><click:run_command:/drivebackup help>/drivebackup help</click></gold> - Tampilkan sumber bantuan
+  <gold><click:run_command:/drivebackup commands>/drivebackup commands</click></gold> - Tampilkan halaman bantuan untuk perintah ini
+  <gold><click:run_command:/drivebackup v>/drivebackup [v|version]</click></gold> - Tampilkan versi plugin
+  <gold><click:run_command:/drivebackup linkaccount googledrive>/drivebackup [link|linkaccount] googledrive</click></gold> - Hubungkan akun Google Drive Anda untuk backup
+  <gold><click:run_command:/drivebackup linkaccount onedrive>/drivebackup [link|linkaccount] onedrive</click></gold> - Hubungkan akun OneDrive Anda untuk backup
+  <gold><click:run_command:/drivebackup linkaccount dropbox>/drivebackup [link|linkaccount] dropbox</click></gold> - Hubungkan akun Dropbox Anda untuk backup
+  <gold><click:run_command:/drivebackup unlinkaccount googledrive>/drivebackup [unlink|unlinkaccount] googledrive</click></gold> - Putuskan hubungan akun Google Drive Anda dan nonaktifkan metode backup
+  <gold><click:run_command:/drivebackup unlinkaccount onedrive>/drivebackup [unlink|unlinkaccount] onedrive</click></gold> - Putuskan hubungan akun OneDrive Anda dan nonaktifkan metode backup
+  <gold><click:run_command:/drivebackup unlinkaccount dropbox>/drivebackup [unlink|unlinkaccount] dropbox</click></gold> - Putuskan hubungan akun Dropbox Anda dan nonaktifkan metode backup
+  <gold><click:run_command:/drivebackup reloadconfig>/drivebackup reloadconfig</click></gold> - Muat ulang file konfigurasi
+  <gold><click:run_command:/drivebackup nextbackup>/drivebackup nextbackup</click></gold> - Dapatkan waktu/tanggal backup otomatis berikutnya
+  <gold><click:run_command:/drivebackup status>/drivebackup status</click></gold> - Dapatkan status backup yang sedang berjalan
+  <gold><click:run_command:/drivebackup backup>/drivebackup backup</click></gold> - Jalankan backup secara manual
+  <gold><click:run_command:/drivebackup test ftp>/drivebackup test ftp</click></gold> - Uji koneksi ke server (S)FTP
+  <gold><click:run_command:/drivebackup test googledrive>/drivebackup test googledrive</click></gold> - Uji koneksi ke Google Drive
+  <gold><click:run_command:/drivebackup test onedrive>/drivebackup test onedrive</click></gold> - Uji koneksi ke OneDrive
+  <gold><click:run_command:/drivebackup test dropbox>/drivebackup test dropbox</click></gold> - Uji koneksi ke Dropbox
+  <gold><click:run_command:/drivebackup update>/drivebackup update</click></gold> - Unduh dan perbarui plugin ini jika versi baru tersedia
+list-delimiter: ", "
+list-last-delimiter: " dan "
