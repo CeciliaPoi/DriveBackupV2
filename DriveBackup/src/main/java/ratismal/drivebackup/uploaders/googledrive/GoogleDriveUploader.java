@@ -209,6 +209,33 @@ public class GoogleDriveUploader extends Uploader {
     }
 
     /**
+     * Finds an existing file with the specified name in the given folder.
+     * @param fileName the name of the file to find
+     * @param folder the folder to search in
+     * @param sharedDrive whether this is a shared drive
+     * @return the existing file or null if not found
+     */
+    @Nullable
+    private File findExistingFile(String fileName, File folder, boolean sharedDrive) {
+        try {
+            Drive.Files.List request = service.files().list()
+                .setQ("trashed=false and '" + folder.getId() + "' in parents and title='" + fileName + "'");
+            if (sharedDrive) {
+                request.setSupportsAllDrives(true)
+                    .setIncludeItemsFromAllDrives(true)
+                    .setCorpora("allDrives");
+            }
+            FileList files = request.execute();
+            if (!files.getItems().isEmpty()) {
+                return files.getItems().get(0); // Return the first match
+            }
+        } catch (Exception e) {
+            MessageUtil.sendConsoleException(e);
+        }
+        return null;
+    }
+
+    /**
      * Uploads the specified file to the authenticated user's Google Drive inside a folder for the specified file type.
      * @param file the file
      * @param type the type of file (ex. plugins, world)
@@ -218,6 +245,14 @@ public class GoogleDriveUploader extends Uploader {
             String sharedDriveId = ConfigParser.getConfig().backupMethods.googleDrive.sharedDriveId;
             retrieveNewAccessToken();
             File folder = getRemoteDir(type, sharedDriveId);
+            
+            // Check if file already exists and delete it for overwrite functionality
+            File existingFile = findExistingFile(file.getName(), folder, !Strings.isNullOrEmpty(sharedDriveId));
+            if (existingFile != null) {
+                logger.log("Overwriting existing file: " + file.getName());
+                service.files().delete(existingFile.getId()).setSupportsAllDrives(true).execute();
+            }
+            
             File fileMetadata = new File();
             fileMetadata.setTitle(file.getName());
             fileMetadata.setDescription("Uploaded by the DriveBackupV2 Minecraft plugin");
@@ -384,11 +419,10 @@ public class GoogleDriveUploader extends Uploader {
     private File getFolder(String name, String driveId) {
         try {
             Drive.Files.List request = service.files().list()
-                .setDriveId(driveId)
                 .setSupportsAllDrives(true)
                 .setIncludeItemsFromAllDrives(true)
                 .setCorpora("drive")
-                .setQ("mimeType='application/vnd.google-apps.folder' and trashed=false and '" + driveId + "' in parents");
+                .setQ("mimeType='application/vnd.google-apps.folder' and trashed=false and title='" + name + "' and '" + driveId + "' in parents");
             FileList files = request.execute();
             for (File folderfiles : files.getItems()) {
                 if (folderfiles.getTitle().equals(name)) {
@@ -457,19 +491,24 @@ public class GoogleDriveUploader extends Uploader {
     /**
      * Returns a list of files in the specified folder in the authenticated user's Google Drive, ordered by creation date.
      * @param folder the folder containing the files
+     * @param sharedDrive whether this is a shared drive
      * @return a list of files
      * @throws Exception
      */
     @NotNull
-    private List<ChildReference> getFiles(@NotNull File folder) throws Exception {
+    private List<ChildReference> getFiles(@NotNull File folder, boolean sharedDrive) throws Exception {
         //Create a List to store results
         List<ChildReference> result = new ArrayList<>();
         //Set up a request to query all files from all pages.
         //We are also making sure the files are sorted by created Date.
         //Oldest at the beginning of List.
-        //Drive.Files.List request = service.files().list().setOrderBy("createdDate");
-        //folder.getId();
         Drive.Children.List request = service.children().list(folder.getId()).setOrderBy("createdDate");
+        
+        // Add shared drive support
+        if (sharedDrive) {
+            request.setSupportsAllDrives(true);
+        }
+        
         //While there is a page available, request files and add them to the Result List.
         do {
             try {
@@ -486,6 +525,17 @@ public class GoogleDriveUploader extends Uploader {
     }
 
     /**
+     * Returns a list of files in the specified folder in the authenticated user's Google Drive, ordered by creation date.
+     * @param folder the folder containing the files
+     * @return a list of files
+     * @throws Exception
+     */
+    @NotNull
+    private List<ChildReference> getFiles(@NotNull File folder) throws Exception {
+        return getFiles(folder, false);
+    }
+
+    /**
      * Deletes the oldest files in the specified folder past the number to retain from the authenticated user's Google Drive.
      * <p>
      * The number of files to retain is specified by the user in the {@code config.yml}
@@ -497,7 +547,11 @@ public class GoogleDriveUploader extends Uploader {
         if (fileLimit == -1) {
             return;
         }
-        List<ChildReference> files = getFiles(folder);
+        
+        String sharedDriveId = ConfigParser.getConfig().backupMethods.googleDrive.sharedDriveId;
+        boolean isSharedDrive = !Strings.isNullOrEmpty(sharedDriveId);
+        
+        List<ChildReference> files = getFiles(folder, isSharedDrive);
         if (files.size() > fileLimit) {
             logger.info(
                 intl("backup-method-limit-reached"), 
